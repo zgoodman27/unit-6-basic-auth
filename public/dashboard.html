@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Dashboard</title>
+  </head>
+  <body>
+    <div class="dashboardContainer">
+      <h1>Welcome!</h1>
+      <p>Hello, <span id="usernamePlaceholder" class="usernameDisplay"></span>!</p>
+      <p>You have successfully logged in to your account!</p>
+      <a href="/" class="logoutButton">Log Out</a>
+    </div>
+    <script>
+      const pathSegments = window.location.pathname.split("/");
+      const username = pathSegments[pathSegments.length - 1];
+      const usernamePlaceholder = document.getElementById("usernamePlaceholder");
+      if (usernamePlaceholder) {
+        usernamePlaceholder.textContent = decodeURIComponent(username);
+      }
+    </script>
+  </body>
+</html>
